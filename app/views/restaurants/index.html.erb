@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h1>Nos Restaurants</h1>
+
+  <%= link_to "Ajouter un nouveau restaurant", new_restaurant_path, class: "btn btn-primary mb-3" %>
+
+  <% if @restaurants.any? %>
+    <ul class="list-group">
+      <% @restaurants.each do |restaurant| %>
+        <li class="list-group-item">
+          <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+          <p><%= restaurant.address %></p>
+          <p><%= restaurant.category %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Aucun restaurant n'a été trouvé.</p>
+  <% end %>
+</div>
